@@ -1,0 +1,21 @@
+services:
+
+  sing-box:
+    image: ghcr.io/sagernet/sing-box:latest
+
+    container_name: sing-box
+
+    restart: unless-stopped
+
+    ports:
+      - "7890:7890"   # HTTP
+      - "7891:7891"   # SOCKS
+
+    volumes:
+      - ./config.json:/etc/sing-box/config.json
+      - ./cache:/var/lib/sing-box
+
+    command:
+      - run
+      - -c
+      - /etc/sing-box/config.json

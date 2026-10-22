@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  xray:
+    image: teddysun/xray
+    container_name: xray
+    restart: unless-stopped
+
+    ports:
+      - "7891:7891"   # socks5
+      - "7890:7890"   # http
+
+    volumes:
+      - ./config.json:/etc/xray/config.json:ro

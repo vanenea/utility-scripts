@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  metube:
+    image: ghcr.io/alexta69/metube:2026.10.09
+    container_name: metube
+    #restart: unless-stopped
+    ports:
+      - "8000:8081"
+    volumes:
+      - ./:/downloads
+    dns:
+      - 1.1.1.1
+      - 8.8.8.8
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      YTDL_OPTIONS: '{"proxy": "socks5h://host.docker.internal:10808"}'
+
+
+

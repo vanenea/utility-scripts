@@ -1,0 +1,13 @@
+services:
+  hermes-personal:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes-chen
+    command: gateway run
+    ports:
+      - "8642:8642"
+      - "9119:9119"
+    volumes:
+      - ./hermes-chen:/opt/data
+    environment:
+      - HERMES_DASHBOARD=1
+      - TZ=Asia/Shanghai
