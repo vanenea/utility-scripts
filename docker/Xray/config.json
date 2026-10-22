@@ -1,0 +1,129 @@
+{
+  "log": {
+    "loglevel": "warning"
+  },
+
+  "inbounds": [
+    {
+      "tag": "socks-in",
+      "port": 7891,
+      "listen": "0.0.0.0",
+      "protocol": "socks",
+      "settings": {
+        "udp": true,
+        "auth": "noauth"
+      }
+    },
+    {
+      "tag": "http-in",
+      "port": 7890,
+      "listen": "0.0.0.0",
+      "protocol": "http"
+    }
+  ],
+
+  "outbounds": [
+    {
+      "tag": "sg",
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "191.101.132.115",
+            "port": 443,
+            "users": [
+              {
+                "id": "6d77bbf1-f553-43f4-8448-cd2736bb8419",
+                "email": "t@t.tt",
+                "security": "auto",
+                "encryption": "none",
+                "flow": "xtls-rprx-vision"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "raw",
+        "security": "reality",
+        "realitySettings": {
+          "serverName": "www.hkex.com.hk",
+          "fingerprint": "chrome",
+          "show": false,
+          "publicKey": "pQ13bE2DlPW8lUj2Y1-mzsii2Bm39uXSjNRWlLN6MDg",
+          "shortId": "1b993e5fe3b93729",
+          "spiderX": "",
+          "mldsa65Verify": ""
+        }
+      },
+      "mux": {
+        "enabled": false,
+        "concurrency": -1
+      }
+    },
+
+    {
+      "tag": "direct",
+      "protocol": "freedom"
+    },
+
+    {
+      "tag": "blocked",
+      "protocol": "blackhole"
+    }
+  ],
+
+  "routing": {
+    "domainStrategy": "AsIs",
+
+    "rules": [
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "domain": [
+          "bing.com"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "sg",
+        "domain": [
+          "geosite:gfw",
+          "geosite:greatfire",
+          "nousresearch.com"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "sg",
+        "ip": [
+          "geoip:facebook",
+          "geoip:fastly",
+          "geoip:google",
+          "geoip:netflix",
+          "geoip:telegram",
+          "geoip:twitter"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "blocked",
+        "protocol": [
+          "bittorrent"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "blocked",
+        "ip": [
+          "geoip:private"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "network": "tcp,udp"
+      }
+    ]
+  }
+}

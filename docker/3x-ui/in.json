@@ -1,0 +1,108 @@
+{
+  "id": 1,
+  "userId": 0,
+  "up": 34588201,
+  "down": 84232558,
+  "total": 0,
+  "remark": "sg",
+  "enable": true,
+  "expiryTime": 0,
+  "trafficReset": "never",
+  "lastTrafficResetTime": 0,
+  "listen": "",
+  "port": 443,
+  "protocol": "vless",
+  "settings": {
+    "clients": [
+      {
+        "comment": "",
+        "created_at": 1782119059076,
+        "email": "chen",
+        "enable": true,
+        "expiryTime": 0,
+        "flow": "",
+        "id": "4434e0c8-7842-4eb2-8c3e-36f5f0ff51d2",
+        "limitIp": 0,
+        "reset": 0,
+        "subId": "b0cnnfh75ssex17e",
+        "tgId": 0,
+        "totalGB": 0,
+        "updated_at": 1782119059000
+      }
+    ],
+    "decryption": "none",
+    "encryption": "none",
+    "testseed": [
+      900,
+      500,
+      900,
+      256
+    ]
+  },
+  "streamSettings": {
+    "network": "tcp",
+    "tcpSettings": {
+      "acceptProxyProtocol": false,
+      "header": {
+        "type": "none"
+      }
+    },
+    "security": "reality",
+    "realitySettings": {
+      "show": true,
+      "xver": 0,
+      "target": "docs.qq.com:443",
+      "serverNames": [
+        "docs.qq.com"
+      ],
+      "privateKey": "yPdlQc29Ck49rqW8yYp21sYgwxKMANZKg4fcI5G_Slo",
+      "minClientVer": "",
+      "maxClientVer": "",
+      "maxTimediff": 0,
+      "shortIds": [
+        "0ab9f770",
+        "c594cc5851",
+        "8269",
+        "6aa0fc6e57d9",
+        "e4",
+        "7482b5",
+        "223e4221a6a278",
+        "76237366e889ad57"
+      ],
+      "mldsa65Seed": "",
+      "settings": {
+        "publicKey": "UEwxI2LRLbbV-10GEa7kT-O2IMBAcpbJV_fQ9w7zN14",
+        "fingerprint": "chrome",
+        "serverName": "",
+        "spiderX": "/",
+        "mldsa65Verify": ""
+      }
+    }
+  },
+  "tag": "in-443-tcp",
+  "sniffing": {
+    "enabled": false
+  },
+  "clientStats": [
+    {
+      "id": 1,
+      "inboundId": 1,
+      "enable": true,
+      "email": "chen",
+      "uuid": "4434e0c8-7842-4eb2-8c3e-36f5f0ff51d2",
+      "subId": "b0cnnfh75ssex17e",
+      "up": 34553931,
+      "down": 84639103,
+      "expiryTime": 0,
+      "total": 0,
+      "reset": 0,
+      "lastOnline": 1782202224003
+    }
+  ],
+  "nodeId": null,
+  "shareAddrStrategy": "listen",
+  "shareAddr": "",
+  "subSortIndex": 1,
+  "originNodeGuid": "",
+  "fallbackParent": null
+}

@@ -1,0 +1,348 @@
+{
+  "log": {
+    "level": "debug",
+    "timestamp": true
+  },
+
+  "dns": {
+    "strategy": "ipv4_only",
+
+    "servers": [
+      {
+        "tag": "local",
+        "type": "udp",
+        "server": "223.5.5.5"
+      },
+
+      {
+        "tag": "remote",
+        "type": "tls",
+        "server": "8.8.8.8",
+        "detour": "proxy"
+      }
+    ],
+
+    "rules": [
+      {
+        "domain_suffix": [
+          ".cn",
+          ".com.cn",
+          ".net.cn",
+          ".org.cn",
+
+          "baidu.com",
+          "bdstatic.com",
+          "bdimg.com",
+
+          "taobao.com",
+          "tmall.com",
+          "alicdn.com",
+          "aliyun.com",
+          "alibaba.com",
+
+          "jd.com",
+          "360buyimg.com",
+
+          "qq.com",
+          "weixin.qq.com",
+          "wechat.com",
+          "tencent.com",
+
+          "weibo.com",
+          "sina.com",
+          "sina.com.cn",
+
+          "douyin.com",
+          "bytedance.com",
+
+          "bilibili.com",
+          "bilivideo.com",
+
+          "zhihu.com",
+
+          "xiaomi.com",
+          "mi.com",
+
+          "163.com",
+          "126.com",
+          "netease.com",
+
+          "meituan.com",
+          "dianping.com",
+
+          "pinduoduo.com",
+
+          "ctrip.com",
+
+          "csdn.net",
+
+          "localhost",
+          "local",
+          "bobandjuly.cyou"
+        ],
+        "server": "local"
+      },
+
+      {
+        "domain_suffix": [
+          "hf.co",
+          "huggingface.co",
+
+          "cursor.com",
+          "windsurf.com",
+
+          "anthropic.com",
+          "claude.ai",
+
+          "openai.com",
+          "chatgpt.com",
+          "oaistatic.com",
+
+          "googleapis.com",
+          "generativelanguage.googleapis.com",
+
+          "github.com",
+          "githubusercontent.com",
+          "githubassets.com",
+
+          "google.com",
+
+          "docker.com",
+          "docker.io",
+          "ghcr.io",
+
+          "twitter.com",
+          "x.com",
+
+          "facebook.com",
+          "fb.com",
+          "instagram.com",
+
+          "telegram.org",
+          "t.me",
+
+          "wikipedia.org",
+          "wikimedia.org",
+
+          "medium.com",
+          "stackoverflow.com",
+
+          "amazon.com",
+          "aws.amazon.com",
+
+          "microsoft.com",
+          "azure.com",
+
+          "apple.com",
+          "icloud.com",
+
+          "netflix.com",
+
+          "youtube.com",
+          "ytimg.com",
+          "ggpht.com",
+
+          "tiktok.com"
+        ],
+        "server": "remote"
+      }
+    ],
+
+    "final": "remote"
+  },
+
+  "inbounds": [
+    {
+      "type": "mixed",
+      "tag": "mixed-in",
+
+      "listen": "0.0.0.0",
+      "listen_port": 7890
+    },
+
+    {
+      "type": "socks",
+      "tag": "socks-in",
+
+      "listen": "0.0.0.0",
+      "listen_port": 7891
+    }
+  ],
+
+  "outbounds": [
+    {
+		"type": "vless",
+		"tag": "proxy",
+		"server": "8.219.67.47",
+		"server_port": 443,
+		"uuid": "4434e0c8-7842-4eb2-8c3e-36f5f0ff51d2",
+
+		"tls": {
+			"enabled": true,
+			"server_name": "docs.qq.com",
+
+			"utls": {
+			"enabled": true,
+			"fingerprint": "chrome"
+			},
+
+			"reality": {
+			"enabled": true,
+			"public_key": "UEwxI2LRLbbV-10GEa7kT-O2IMBAcpbJV_fQ9w7zN14",
+			"short_id": "223e4221a6a278"
+			}
+		}
+	},
+
+    {
+      "tag": "direct",
+      "type": "direct"
+    },
+
+    {
+      "tag": "block",
+      "type": "block"
+    }
+  ],
+
+  "route": {
+    "auto_detect_interface": true,
+
+    "default_domain_resolver": {
+      "server": "local",
+      "rewrite_ttl": 60
+    },
+
+    "rule_set": [],
+
+    "rules": [
+      {
+        "domain_suffix": [
+          ".cn",
+          ".com.cn",
+          ".net.cn",
+          ".org.cn",
+
+          "baidu.com",
+          "bdstatic.com",
+          "bdimg.com",
+
+          "taobao.com",
+          "tmall.com",
+          "alicdn.com",
+          "aliyun.com",
+          "alibaba.com",
+
+          "jd.com",
+          "360buyimg.com",
+
+          "qq.com",
+          "weixin.qq.com",
+          "wechat.com",
+          "tencent.com",
+
+          "weibo.com",
+          "sina.com",
+          "sina.com.cn",
+
+          "douyin.com",
+          "bytedance.com",
+
+          "bilibili.com",
+          "bilivideo.com",
+
+          "zhihu.com",
+
+          "xiaomi.com",
+          "mi.com",
+
+          "163.com",
+          "126.com",
+          "netease.com",
+
+          "meituan.com",
+          "dianping.com",
+
+          "pinduoduo.com",
+
+          "ctrip.com",
+
+          "csdn.net",
+
+          "localhost",
+          "local",
+		  "bobandjuly.cyou"
+        ],
+
+        "outbound": "direct"
+      },
+
+      {
+        "domain_suffix": [
+          "hf.co",
+          "huggingface.co",
+
+          "cursor.com",
+          "windsurf.com",
+
+          "anthropic.com",
+          "claude.ai",
+
+          "openai.com",
+          "chatgpt.com",
+          "oaistatic.com",
+
+          "googleapis.com",
+          "generativelanguage.googleapis.com",
+
+          "githubusercontent.com",
+          "githubassets.com",
+
+          "ghcr.io",
+          "github.com",
+          "google.com",
+          "docker.com",
+          "docker.io",
+
+          "twitter.com",
+          "x.com",
+
+          "facebook.com",
+          "fb.com",
+          "instagram.com",
+
+          "telegram.org",
+          "t.me",
+
+          "wikipedia.org",
+          "wikimedia.org",
+
+          "medium.com",
+
+          "stackoverflow.com",
+
+          "amazon.com",
+          "aws.amazon.com",
+
+          "microsoft.com",
+          "azure.com",
+
+          "apple.com",
+          "icloud.com",
+
+          "netflix.com",
+
+          "youtube.com",
+          "ytimg.com",
+          "ggpht.com",
+
+          "tiktok.com"
+        ],
+
+        "outbound": "proxy"
+      }
+    ],
+
+    "final": "proxy"
+  }
+}

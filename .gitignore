@@ -1,0 +1,32 @@
+# docker/、dockerLean/、dockerTemp/ 下只提交 .yaml/.yml/.conf/.json/.sh 文件
+# 规则只作用于这三个目录，其他目录（如 script/）不受影响
+
+docker/**
+!docker/**/
+!docker/**/*.yaml
+!docker/**/*.yml
+!docker/**/*.conf
+!docker/**/*.json
+!docker/**/*.sh
+
+dockerLean/**
+!dockerLean/**/
+!dockerLean/**/*.yaml
+!dockerLean/**/*.yml
+!dockerLean/**/*.conf
+!dockerLean/**/*.json
+!dockerLean/**/*.sh
+
+dockerTemp/**
+!dockerTemp/**/
+!dockerTemp/**/*.yaml
+!dockerTemp/**/*.yml
+!dockerTemp/**/*.conf
+!dockerTemp/**/*.json
+!dockerTemp/**/*.sh
+
+# 排除运行时数据目录（写在白名单之后，优先生效）
+docker/metube/.metube/**
+docker/sing-box/.claude/**
+dockerLean/gitea/**
+dockerLean/minio/.minio.sys/**
